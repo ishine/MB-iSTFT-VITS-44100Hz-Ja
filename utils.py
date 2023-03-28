@@ -48,8 +48,8 @@ def load_checkpoint_for_finetuning(checkpoint_path, model,hps, optimizer=None):
   checkpoint_dict = torch.load(checkpoint_path, map_location='cpu')
   iteration = 1
   learning_rate = hps.train.learning_rate
-  if optimizer is not None:
-    optimizer.load_state_dict(checkpoint_dict['optimizer'])
+  #if optimizer is not None:                                  # ファインチューニング用のlrの引き継ぎをナシに
+  #  optimizer.load_state_dict(checkpoint_dict['optimizer'])
   saved_state_dict = checkpoint_dict['model']
   if hasattr(model, 'module'):
     state_dict = model.module.state_dict()
