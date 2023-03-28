@@ -50,8 +50,8 @@ def main():
 #   n_gpus = 1
 
   hps = utils.get_hparams()
-  run(rank=0, n_gpus=n_gpus, hps=hps)
-  #mp.spawn(run, nprocs=n_gpus, args=(n_gpus, hps,))
+  #run(rank=0, n_gpus=n_gpus, hps=hps)                # 単発用
+  mp.spawn(run, nprocs=n_gpus, args=(n_gpus, hps,))   # MultiProcessing
 
 
 def run(rank, n_gpus, hps):
