@@ -62,14 +62,14 @@
 主要なパラメータを説明します。必要であれば編集してください。
 | 分類 | パラメータ名 | 説明 |
 |:-----------:|:------------:|:------------:|
-| train       | log_interval        | 何ステップ毎にロス計算を表示するか         |
+| train       | log_interval        | 何ステップ毎にロス計算を記録するか         |
 | train     | eval_interval      | 何ステップ毎にモデル評価を行いモデルを保存するか       |
 | train      | epochs        | 学習データ全体を何周学習するか         |
 | train       | batch_size          | 一度のパラメータ更新に使用する学習データ数           |
-| train       | finetune_model_dir       | ファインチューニング用のcheckpointsが入っているフォルダ       |
+| train       | finetune_model_dir       | ファインチューニング用のD_0.pth/G_0.pthが入っているフォルダ       |
 | data    | training_files     | 学習用filelistのテキストパス      |
 | data    | validation_files     | 検証用filelistのテキストパス      |
-| data    | cleaned_text     | filelistの書き起こし文が音素列であればtrue、通常の文であればfalse      |
+| data    | cleaned_text     | filelistの書き起こし文が音素列であればtrue、**通常の文であればfalse**      |
 
 ## 4. 学習
 次のコマンドを入力することで、学習を開始する。
@@ -100,7 +100,7 @@ tensorboard --logdir=path/to/tensorboard/log/
 ## 6.ファインチューニング
 ファインチューニングを行う場合は、生成器モデルのcheckpointをG_0.pth、識別器モデルのcheckpointsをD_0.pthに名前を変更し、finetuning_weightフォルダへと配置する。その後、学習を開始することで、ファインチューニングを行うことが出来る。
 
-> ファインチューニング用のcheckpointsは、後ほど公開します。
+> JSUTで学習済のチェックポイント（240kステップ / 1622エポック) を🎉[ダウンロード](https://drive.google.com/file/d/1ZXC8mc_obWXKeQ7Vn5RrYdyjINbAWyEN/view?usp=share_link)🎉する。
 
 
 ## 付録
